@@ -1,4 +1,4 @@
-package com.example.Async_Proj;
+package com.example.Async_Proj.entity;
 
 
 public class UserDetailsResponse {

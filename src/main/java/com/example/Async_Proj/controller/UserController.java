@@ -1,6 +1,6 @@
 package com.example.Async_Proj.controller;
 
-import com.example.Async_Proj.UserDetailsResponse;
+import com.example.Async_Proj.entity.UserDetailsResponse;
 import com.example.Async_Proj.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;

@@ -1,6 +1,6 @@
 package com.example.Async_Proj.service;
 
-import com.example.Async_Proj.UserDetailsResponse;
+import com.example.Async_Proj.entity.UserDetailsResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
