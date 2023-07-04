@@ -19,16 +19,16 @@ public class UserService {
 
     Logger log = LoggerFactory.getLogger(UserService.class);
 
-    private String url = "https://api.github.com/users/";
+    private String url = "https://api.github.com/users";
 
     @Async
     public CustomUserDetails getUserDetails(String name) throws InterruptedException {
 
         CustomUserDetails customUserDetails = new CustomUserDetails();
-        UriComponentsBuilder uriBuilder = UriComponentsBuilder.fromUriString(url+name);
+        UriComponentsBuilder uriBuilder = UriComponentsBuilder.fromUriString(url + "/" + name);
 
         // Add query parameters
-        uriBuilder.queryParam("name", name);
+        //uriBuilder.queryParam("name", name);
 
         // Build the final URL with query parameters
         String urlWithParams = uriBuilder.toUriString();
