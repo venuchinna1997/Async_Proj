@@ -1,5 +1,6 @@
 package com.example.Async_Proj.service;
 
+import com.example.Async_Proj.entity.CustomUserDetails;
 import com.example.Async_Proj.entity.UserDetailsResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -14,8 +15,9 @@ public class UserService {
 
     private String url = "https://api.github.com/users/";
 
-    public UserDetailsResponse getUserDetails(String name) {
+    public CustomUserDetails getUserDetails(String name) {
 
+        CustomUserDetails customUserDetails = new CustomUserDetails();
         UriComponentsBuilder uriBuilder = UriComponentsBuilder.fromUriString(url+name);
 
         // Add query parameters
@@ -25,6 +27,12 @@ public class UserService {
         String urlWithParams = uriBuilder.toUriString();
 
         UserDetailsResponse userDetailsResponse = restTemplate.getForObject(urlWithParams, UserDetailsResponse.class);
-        return userDetailsResponse;
+
+        customUserDetails.setLogin(userDetailsResponse.getLogin());
+        customUserDetails.setId(userDetailsResponse.getId());
+        customUserDetails.setType(userDetailsResponse.getType());
+        customUserDetails.setSite_admin(userDetailsResponse.isSite_admin());
+
+        return customUserDetails;
     }
 }
